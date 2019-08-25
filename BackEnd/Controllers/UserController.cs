@@ -25,12 +25,6 @@ namespace BackEnd.Controllers
         {
             return _db.users;
         }
-        [HttpPost]
-        public void Post(User user)
-        {
-            _db.users.Add(user);
-            _db.SaveChanges();
-        }
 
         // GET api/user/5
         [HttpGet("{id}")]
@@ -38,7 +32,12 @@ namespace BackEnd.Controllers
         {
             return _db.users.FirstOrDefault(x => x.id == id);
         }
-
+        [HttpPost]
+        public void Post(User user)
+        {
+            _db.users.Add(user);
+            _db.SaveChanges();
+        }
         // PUT api/user/5
         [HttpPut("{id}")]
         public ActionResult<User> Put(int id, User user)
