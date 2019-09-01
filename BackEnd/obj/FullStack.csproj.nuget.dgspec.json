@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FullStack-Faique\\backend\\FullStack.csproj": {}
+    "D:\\FullStack-Faique\\BackEnd\\FullStack.csproj": {}
   },
   "projects": {
-    "D:\\FullStack-Faique\\backend\\FullStack.csproj": {
+    "D:\\FullStack-Faique\\BackEnd\\FullStack.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FullStack-Faique\\backend\\FullStack.csproj",
+        "projectUniqueName": "D:\\FullStack-Faique\\BackEnd\\FullStack.csproj",
         "projectName": "FullStack",
-        "projectPath": "D:\\FullStack-Faique\\backend\\FullStack.csproj",
+        "projectPath": "D:\\FullStack-Faique\\BackEnd\\FullStack.csproj",
         "packagesPath": "C:\\Users\\cl3\\.nuget\\packages\\",
-        "outputPath": "D:\\FullStack-Faique\\backend\\obj\\",
+        "outputPath": "D:\\FullStack-Faique\\BackEnd\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
