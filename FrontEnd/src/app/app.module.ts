@@ -26,6 +26,7 @@ import {
   MatMenuModule
 } from '@angular/material';
 import { UserComponent } from './user/user.component';
+import { HttpService } from 'src/services/http.service';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,7 @@ import { UserComponent } from './user/user.component';
     ReactiveFormsModule, 
     FormsModule
   ],
-  providers: [],
+  providers: [HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
