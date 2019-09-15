@@ -21,13 +21,16 @@ import {
   MatTabsModule,
   MatPaginatorModule,
   MatSelectModule,
-  MatRadioModule
+  MatRadioModule,
+  MatMenuModule
 } from '@angular/material';
+import { UserComponent } from './user/user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +50,8 @@ import {
     MatTabsModule,
     MatPaginatorModule,
     MatSelectModule,
-    MatRadioModule
+    MatRadioModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
