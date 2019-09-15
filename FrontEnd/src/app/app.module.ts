@@ -6,8 +6,23 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import {
+  MatFormFieldModule,
+  MatInputModule,
+  MatTableModule,
+  MatToolbar,
+  MatDividerModule,
+  MatIconModule,
+  MatSidenavModule,
+  MatListModule,
+  MatCheckbox,
+  MatButtonModule,
+  MatCardModule,
+  MatTabsModule,
+  MatPaginatorModule,
+  MatSelectModule,
+  MatRadioModule
+} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -19,7 +34,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatTableModule,
+    MatToolbar,
+    MatDividerModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
+    MatCheckbox,
+    MatButtonModule,
+    MatCardModule,
+    MatTabsModule,
+    MatPaginatorModule,
+    MatSelectModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
