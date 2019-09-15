@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from "@angular/common/http";
+import { CookieService, CookieOptions } from "angular2-cookie/core";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -38,6 +40,7 @@ import { HttpService } from 'src/services/http.service';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
@@ -54,10 +57,14 @@ import { HttpService } from 'src/services/http.service';
     MatSelectModule,
     MatRadioModule,
     MatMenuModule,
-    ReactiveFormsModule, 
+    ReactiveFormsModule,
     FormsModule
   ],
-  providers: [HttpService],
+  providers: [
+    HttpService,
+    CookieService,
+    { provide: CookieOptions, useValue: {} }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

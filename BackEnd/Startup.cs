@@ -29,7 +29,13 @@ namespace FullStack
         {
             services.AddDbContext<DataContext>(x =>
             x.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddCors(option => 
+            option.AddPolicy("AllowAllOrigins", builder => {
+                builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials();
+            }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,7 +52,9 @@ namespace FullStack
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            app.UseCors("AllowAllOrigins");
+
+            // app.UseHttpsRedirection();
             app.UseMvc();
 
             _db.Database.Migrate();
