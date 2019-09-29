@@ -90,6 +90,12 @@ namespace BackEnd.Controllers
                 return Ok(token);
             }
 
+            /*
+            
+            eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiTXVoYW1tYWQgRmFpcXVlIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoibXVoYW1tYWRmYWlxdWU3QGdtYWlsLmNvbSIsIm5iZiI6MTU2OTc0NzAwNSwiZXhwIjoxNTcyMzM5MDA1fQ.bDFJ8hWIq1hTo_VP5qIrZIHL371mREdYVfe0b9wNSKexmoH7cV_VfdyygMaXamuc8lUenJPqshWvQ514YeJntQ
+
+             */
+
             return BadRequest(false);
         }
 
