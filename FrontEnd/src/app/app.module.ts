@@ -29,12 +29,14 @@ import {
 } from '@angular/material';
 import { UserComponent } from './user/user.component';
 import { HttpService } from 'src/services/http.service';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    UserComponent
+    UserComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
