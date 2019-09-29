@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using FullStack.Models;
 using FullStack.Data;
+using BackEnd.Helpers;
 using Microsoft.EntityFrameworkCore;
 using BackEnd.DTO;
 
@@ -15,9 +16,11 @@ namespace BackEnd.Controllers
     public class UserController : ControllerBase
     {
         private DataContext _db { get; set; }
+        private PasswordManager _passwordManager;
 
         public UserController(DataContext datacontext)
         {
+            _passwordManager = new PasswordManager();
             _db = datacontext;
         }
         // GET api/user
@@ -40,14 +43,44 @@ namespace BackEnd.Controllers
             _db.SaveChanges();
         }
 
+        [HttpPost("register")]
+        public IActionResult Register(RegisterDTO user)
+        {
+            var userExists = _db.users.FirstOrDefault(x =>
+            x.email == user.email);
+            if(userExists != null){
+                return BadRequest("User Already Exists");
+            }
+
+            byte[] passwordHash;
+            byte[] passwordSalt;
+            _passwordManager.CreatePasswordHash(user.password, out passwordHash, out passwordSalt);
+
+            User newUser = new User{
+                email = user.email,
+                passwordHash = passwordHash,
+                passwordSalt = passwordSalt,
+                name = user.name,
+                nationalId = user.nationalId
+            };
+            _db.users.Add(newUser);
+            _db.SaveChanges();
+
+            return Ok("User Created");
+        }
+
         [HttpPost("login")]
-        public ActionResult<bool> login(LoginDTO dto)
+        public IActionResult login(LoginDTO dto)
         {
             var user = _db.users.FirstOrDefault(x =>
-            x.email == dto.email
-            && x.password == dto.password);
+            x.email == dto.email);
+            if(user == null){
+                return BadRequest("User doesn't exist");
+            }
 
-            if (user != null)
+            bool verify = _passwordManager.VerifyPasswordHash(dto.password, user.passwordHash, user.passwordSalt);
+            
+            if (verify)
                 return Ok(true);
 
             return BadRequest(false);

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FullStack.Migrations
 {
@@ -11,9 +12,12 @@ namespace FullStack.Migrations
                 columns: table => new
                 {
                     id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("MySQL:AutoIncrement", true),
                     name = table.Column<string>(nullable: false),
-                    nationalId = table.Column<string>(nullable: true)
+                    nationalId = table.Column<string>(nullable: true),
+                    email = table.Column<string>(nullable: true),
+                    passwordSalt = table.Column<byte[]>(nullable: true),
+                    passwordHash = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {

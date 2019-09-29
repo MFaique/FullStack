@@ -13,6 +13,7 @@ namespace FullStack.Models
 
         public string email { get; set; }
 
-        public string password { get; set; }
+        public byte[] passwordSalt { get; set; }
+        public byte[] passwordHash { get; set; }
     }
 }
