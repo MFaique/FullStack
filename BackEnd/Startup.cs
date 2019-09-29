@@ -12,6 +12,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using BackEnd.Helpers.Interfaces;
+using BackEnd.Helpers;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace FullStack
 {
@@ -36,6 +40,10 @@ namespace FullStack
             option.AddPolicy("AllowAllOrigins", builder => {
                 builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials();
             }));
+
+            services.AddHttpContextAccessor();
+            services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
+            services.AddTransient<IJWTmanager, JWTmanager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

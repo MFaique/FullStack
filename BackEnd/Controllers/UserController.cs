@@ -8,6 +8,8 @@ using FullStack.Data;
 using BackEnd.Helpers;
 using Microsoft.EntityFrameworkCore;
 using BackEnd.DTO;
+using BackEnd.Helpers.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BackEnd.Controllers
 {
@@ -16,10 +18,12 @@ namespace BackEnd.Controllers
     public class UserController : ControllerBase
     {
         private DataContext _db { get; set; }
+        private IJWTmanager _jwt;
         private PasswordManager _passwordManager;
 
-        public UserController(DataContext datacontext)
+        public UserController(DataContext datacontext, IJWTmanager jwt)
         {
+            _jwt = jwt;
             _passwordManager = new PasswordManager();
             _db = datacontext;
         }
@@ -81,7 +85,10 @@ namespace BackEnd.Controllers
             bool verify = _passwordManager.VerifyPasswordHash(dto.password, user.passwordHash, user.passwordSalt);
             
             if (verify)
-                return Ok(true);
+            {
+                var token = _jwt.GenerateJwtToken(user);
+                return Ok(token);
+            }
 
             return BadRequest(false);
         }
