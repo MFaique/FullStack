@@ -26,3 +26,17 @@ D:\FullStack-Faique\BackEnd\obj\Debug\netcoreapp2.1\FullStack.AssemblyInfo.cs
 D:\FullStack-Faique\BackEnd\obj\Debug\netcoreapp2.1\FullStack.RazorTargetAssemblyInfo.cache
 D:\FullStack-Faique\BackEnd\obj\Debug\netcoreapp2.1\FullStack.dll
 D:\FullStack-Faique\BackEnd\obj\Debug\netcoreapp2.1\FullStack.pdb
+E:\web app class\source\FullStack\backend\obj\Debug\netcoreapp2.1\FullStack.csprojAssemblyReference.cache
+E:\web app class\source\FullStack\backend\obj\Debug\netcoreapp2.1\FullStack.csproj.CoreCompileInputs.cache
+E:\web app class\source\FullStack\backend\obj\Debug\netcoreapp2.1\FullStack.RazorAssemblyInfo.cache
+E:\web app class\source\FullStack\backend\obj\Debug\netcoreapp2.1\FullStack.RazorAssemblyInfo.cs
+E:\web app class\source\FullStack\backend\obj\Debug\netcoreapp2.1\FullStack.AssemblyInfoInputs.cache
+E:\web app class\source\FullStack\backend\obj\Debug\netcoreapp2.1\FullStack.AssemblyInfo.cs
+E:\web app class\source\FullStack\backend\obj\Debug\netcoreapp2.1\FullStack.dll
+E:\web app class\source\FullStack\backend\obj\Debug\netcoreapp2.1\FullStack.pdb
+E:\web app class\source\FullStack\backend\bin\Debug\netcoreapp2.1\FullStack.deps.json
+E:\web app class\source\FullStack\backend\bin\Debug\netcoreapp2.1\FullStack.runtimeconfig.json
+E:\web app class\source\FullStack\backend\bin\Debug\netcoreapp2.1\FullStack.runtimeconfig.dev.json
+E:\web app class\source\FullStack\backend\bin\Debug\netcoreapp2.1\FullStack.dll
+E:\web app class\source\FullStack\backend\bin\Debug\netcoreapp2.1\FullStack.pdb
+E:\web app class\source\FullStack\backend\obj\Debug\netcoreapp2.1\FullStack.RazorTargetAssemblyInfo.cache
