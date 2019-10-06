@@ -33,13 +33,17 @@ import { RegisterComponent } from './register/register.component';
 import { TokenService } from 'src/services/token.service';
 import { DataService } from 'src/services/data.service';
 import { AuthGuard } from 'src/services/auth.guard.service';
+import { AddressComponent } from './address/address.component';
+import { AddressListComponent } from './address-list/address-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     UserComponent,
-    RegisterComponent
+    RegisterComponent,
+    AddressComponent,
+    AddressListComponent
   ],
   imports: [
     BrowserModule,

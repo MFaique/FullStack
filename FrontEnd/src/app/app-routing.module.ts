@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from 'src/services/auth.guard.service';
+import { AddressComponent } from './address/address.component';
+import { AddressListComponent } from './address-list/address-list.component';
 
 
 const routes: Routes = [
@@ -19,6 +21,16 @@ const routes: Routes = [
   {
     path: 'user',
     component: UserComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'address',
+    component: AddressComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'addressList',
+    component: AddressListComponent,
     canActivate: [AuthGuard]
   }
 ];
