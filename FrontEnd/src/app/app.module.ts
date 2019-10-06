@@ -30,6 +30,9 @@ import {
 import { UserComponent } from './user/user.component';
 import { HttpService } from 'src/services/http.service';
 import { RegisterComponent } from './register/register.component';
+import { TokenService } from 'src/services/token.service';
+import { DataService } from 'src/services/data.service';
+import { AuthGuard } from 'src/services/auth.guard.service';
 
 @NgModule({
   declarations: [
@@ -65,6 +68,9 @@ import { RegisterComponent } from './register/register.component';
   providers: [
     HttpService,
     CookieService,
+    TokenService,
+    AuthGuard,
+    DataService,
     { provide: CookieOptions, useValue: {} }
   ],
   bootstrap: [AppComponent]
