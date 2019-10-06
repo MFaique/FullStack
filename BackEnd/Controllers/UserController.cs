@@ -87,7 +87,7 @@ namespace BackEnd.Controllers
             if (verify)
             {
                 var token = _jwt.GenerateJwtToken(user);
-                return Ok(token);
+                return Ok(new { token = token});
             }
 
             /*

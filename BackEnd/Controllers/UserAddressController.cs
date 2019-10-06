@@ -7,6 +7,7 @@ using FullStack.Models;
 using FullStack.Data;
 using Microsoft.EntityFrameworkCore;
 using BackEnd.DTO;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BackEnd.Controllers
 {
@@ -41,6 +42,7 @@ namespace BackEnd.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public void Post(UserAddress userAddress)
         {
             _db.userAddresses.Add(userAddress);

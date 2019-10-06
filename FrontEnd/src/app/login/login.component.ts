@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { HttpService } from 'src/services/http.service';
+import { CookieService } from "angular2-cookie/core";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,9 @@ export class LoginComponent implements OnInit {
 
   formFG: FormGroup;
   constructor(private _formBuilder: FormBuilder,
-    private httpService: HttpService) { 
+    private httpService: HttpService,
+    private cookieService: CookieService,
+    private route: Router) { 
     this.formFG = this._formBuilder.group({
       email: ['',[Validators.email, Validators.required]],
       password: ['', Validators.required]
@@ -28,6 +32,8 @@ export class LoginComponent implements OnInit {
       this.httpService.post('user/login',this.formFG.value)
       .subscribe((res: any)=>{
         console.log('Response From Server : ', res);
+        this.cookieService.putObject('authorization',res.token);
+        this.route.navigate(['/user']);
       });
     }
   }
