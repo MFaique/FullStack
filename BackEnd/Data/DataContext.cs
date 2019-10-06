@@ -9,6 +9,6 @@ namespace FullStack.Data
        : base(options) {}
 
        public DbSet<User> users { get; set; }
-       public DbSet<UserAddress> userAddresses { get; set; }
+       public DbSet<UserAddress> userAddress { get; set; }
     }
 }

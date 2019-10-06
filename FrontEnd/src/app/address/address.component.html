@@ -1,1 +1,33 @@
-<p>address works!</p>
+<!-- <p>login component works!</p> -->
+<div style="padding: 20px; margin: 20px">
+    <mat-card>
+        <div class="example-container">
+            <!-- Reactive Forms -->
+            <div class="container">
+                <form [formGroup]="formFG" (ngSubmit)="submit()">
+
+                    <div style="display: none;">
+                        <mat-form-field hidden>
+                            <input matInput type="number" formControlName="id">
+                        </mat-form-field>
+
+                        <mat-form-field hidden>
+                            <input matInput type="number" formControlName="userId">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="row">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Address</mat-label>
+                            <textarea rows="6" cols="50" matInput type="text" formControlName="address"
+                                placeholder="anything"></textarea>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <button mat-flat-button color="primary" type="submit">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </mat-card>
+</div>

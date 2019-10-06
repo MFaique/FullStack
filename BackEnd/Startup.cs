@@ -38,7 +38,10 @@ namespace FullStack
             services.AddDbContext<DataContext>(x =>
             x.UseMySQL(Configuration.GetConnectionString("DefaultConnection")));
             
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
+            .AddJsonOptions(options => {
+                options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            });
 
             services.AddCors(option => 
             option.AddPolicy("AllowAllOrigins", builder => {
@@ -79,6 +82,7 @@ namespace FullStack
             }
 
             app.UseCors("AllowAllOrigins");
+            app.UseAuthentication();
 
             // app.UseHttpsRedirection();
             app.UseMvc();

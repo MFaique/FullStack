@@ -25,27 +25,29 @@ namespace BackEnd.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<UserAddress>> Get()
         {
-            return _db.userAddresses;
+            return _db.userAddress;
         }
 
         // GET api/user/5
         [HttpGet("{id}")]
         public ActionResult<UserAddress> Get(int id)
         {
-            return _db.userAddresses.FirstOrDefault(x => x.id == id);
+            return _db.userAddress.FirstOrDefault(x => x.id == id);
         }
 
         [HttpGet("GetByUserId/{userId}")]
-        public ActionResult<UserAddress> GetByUserId(int userId)
+        public ActionResult<IList<UserAddress>> GetByUserId(int userId)
         {
-            return _db.userAddresses.FirstOrDefault(x => x.id == userId);
+            return _db.userAddress
+            .Include(x => x.user)
+            .Where(x => x.userId == userId).ToList();
         }
 
         [HttpPost]
         [Authorize]
         public void Post(UserAddress userAddress)
         {
-            _db.userAddresses.Add(userAddress);
+            _db.userAddress.Add(userAddress);
             _db.SaveChanges();
         }
 
@@ -53,10 +55,10 @@ namespace BackEnd.Controllers
         [HttpPut("{id}")]
         public ActionResult<UserAddress> Put(int id, UserAddress userAddress)
         {
-            var value = _db.userAddresses.AsNoTracking().FirstOrDefault(x => x.id == id);
+            var value = _db.userAddress.AsNoTracking().FirstOrDefault(x => x.id == id);
             if (value != null)
             {
-                _db.userAddresses.Update(userAddress);
+                _db.userAddress.Update(userAddress);
                 _db.SaveChanges();
                 return Ok(userAddress);
             }
@@ -70,10 +72,10 @@ namespace BackEnd.Controllers
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
-            var value = _db.userAddresses.AsNoTracking().FirstOrDefault(x => x.id == id);
+            var value = _db.userAddress.AsNoTracking().FirstOrDefault(x => x.id == id);
             if (value != null)
             {
-                _db.userAddresses.Remove(value);
+                _db.userAddress.Remove(value);
                 _db.SaveChanges();
                 return Ok("SuccessFully Deleted");
             }
