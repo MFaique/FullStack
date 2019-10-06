@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot } from '@angular/router';
 import { TokenService, tokenModel } from './token.service';
-import { RoleService } from './role.service';
 /**
  * Authorization validation Service
  */
@@ -16,8 +15,7 @@ export class AuthGuard implements CanActivate {
    */
   constructor(
     private router: Router,
-    private tokenService: TokenService,
-    private roleService: RoleService) { }
+    private tokenService: TokenService) { }
   /**
    * @returns {Boolean} Boolean True when user logged in
    */
