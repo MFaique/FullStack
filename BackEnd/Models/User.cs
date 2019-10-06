@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace FullStack.Models
@@ -10,10 +11,9 @@ namespace FullStack.Models
         [Required]
         public string name { get; set; }
         public string nationalId { get; set; }
-
         public string email { get; set; }
-
         public byte[] passwordSalt { get; set; }
         public byte[] passwordHash { get; set; }
+        public IEnumerable<UserAddress> userAddresses { get; set; }
     }
 }
