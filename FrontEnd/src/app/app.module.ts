@@ -35,6 +35,7 @@ import { DataService } from 'src/services/data.service';
 import { AuthGuard } from 'src/services/auth.guard.service';
 import { AddressComponent } from './address/address.component';
 import { AddressListComponent } from './address-list/address-list.component';
+import { AddresseditComponent } from './addressedit/addressedit.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AddressListComponent } from './address-list/address-list.component';
     UserComponent,
     RegisterComponent,
     AddressComponent,
-    AddressListComponent
+    AddressListComponent,
+    AddresseditComponent
   ],
   imports: [
     BrowserModule,

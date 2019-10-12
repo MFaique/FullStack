@@ -7,6 +7,7 @@ import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from 'src/services/auth.guard.service';
 import { AddressComponent } from './address/address.component';
 import { AddressListComponent } from './address-list/address-list.component';
+import { AddresseditComponent } from './addressedit/addressedit.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,11 @@ const routes: Routes = [
   {
     path: 'addressList',
     component: AddressListComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'addressEdit/:id',
+    component: AddresseditComponent,
     canActivate: [AuthGuard]
   }
 ];

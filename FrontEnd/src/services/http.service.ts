@@ -45,7 +45,7 @@ export class HttpService {
 
     put(url: string, data: any) {
         return this.http
-            .post(environment.api_url + url, data, { headers: this.getHeaders() })
+            .put(environment.api_url + url, data, { headers: this.getHeaders() })
             .pipe(map(((response: any) => {
                 return response;
             })));

@@ -52,7 +52,8 @@ namespace BackEnd.Controllers
         {
             var userExists = _db.users.FirstOrDefault(x =>
             x.email == user.email);
-            if(userExists != null){
+            if (userExists != null)
+            {
                 return BadRequest("User Already Exists");
             }
 
@@ -60,7 +61,8 @@ namespace BackEnd.Controllers
             byte[] passwordSalt;
             _passwordManager.CreatePasswordHash(user.password, out passwordHash, out passwordSalt);
 
-            User newUser = new User{
+            User newUser = new User
+            {
                 email = user.email,
                 passwordHash = passwordHash,
                 passwordSalt = passwordSalt,
@@ -70,7 +72,7 @@ namespace BackEnd.Controllers
             _db.users.Add(newUser);
             _db.SaveChanges();
 
-            return Ok("User Created");
+            return Ok(new { message = "User Created" });
         }
 
         [HttpPost("login")]
@@ -78,16 +80,17 @@ namespace BackEnd.Controllers
         {
             var user = _db.users.FirstOrDefault(x =>
             x.email == dto.email);
-            if(user == null){
+            if (user == null)
+            {
                 return BadRequest("User doesn't exist");
             }
 
             bool verify = _passwordManager.VerifyPasswordHash(dto.password, user.passwordHash, user.passwordSalt);
-            
+
             if (verify)
             {
                 var token = _jwt.GenerateJwtToken(user);
-                return Ok(new { token = token});
+                return Ok(new { token = token });
             }
 
             /*

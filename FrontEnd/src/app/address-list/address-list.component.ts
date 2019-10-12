@@ -11,7 +11,7 @@ export class AddressListComponent implements OnInit {
 
   addresses: any;
   token: tokenModel;
-  displayedColumns: string[] = ['id', 'address', 'userId', 'name'];
+  displayedColumns: string[] = ['id', 'address', 'userId', 'name','action'];
   constructor(private httpService: HttpService,
     private tokenService: TokenService) { }
 
